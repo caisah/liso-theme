@@ -3,16 +3,28 @@ Liso Theme
 
 Liso is an eclectic dark theme inspired by TangoTango.
 
-### Supported additional modes
+**Warning** This theme doesn't work when running Emacs in the Terminal
 
+
+### Modes
+
+* font-lock
+* mode-line
+* flycheck
 * helm
 * anzu
 * company
 * diredp
 * magit
 * org
-* diff
+* ediff
 * markdown
+* eshell
+* shell
+* whitespace
+* regexp-builder
+* erc
+* twittering
 
 ### Images
 **Elisp**

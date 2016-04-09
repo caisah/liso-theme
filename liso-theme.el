@@ -72,20 +72,20 @@
    'liso
 
    `(default ((t (:family "Ubuntu Mono"
-                  :foundry "unknown"
-                  :width normal
-                  :height 128
-                  :weight normal
-                  :slant normal
-                  :underline nil
-                  :overline nil
-                  :strike-through nil
-                  :box nil
-                  :inverse-video nil
-                  :foreground ,foreground
-                  :background ,background
-                  :stipple nil
-                  :inherit nil))))
+                          :foundry "unknown"
+                          :width normal
+                          :height 128
+                          :weight normal
+                          :slant normal
+                          :underline nil
+                          :overline nil
+                          :strike-through nil
+                          :box nil
+                          :inverse-video nil
+                          :foreground ,foreground
+                          :background ,background
+                          :stipple nil
+                          :inherit nil))))
    `(cursor ((t (:foreground ,foreground-black :background ,cursor-yellow))))
    `(fixed-pitch ((t (:inherit (default)))))
    `(variable-pitch ((t (:family "Sans Serif"))))
@@ -146,9 +146,11 @@
    `(vertical-border ((t (:foreground ,ml-black))))
    `(error ((t (:foreground ,error-red :weight semi-bold))))
    `(completions-first-difference ((t (:inherit (highlight)))))
+
    ;; flycheck
    `(flycheck-error ((t (:background ,ml-black :underline (:color ,error-red :style wave)))))
    `(flycheck-warning ((t (:underline (:color ,warning :style wave)))))
+
    ;; helm
    `(helm-action ((t (:foreground ,foreground :underline nil))))
    `(helm-selection ((t (:background ,ml-grey-darker :weight bold))))
@@ -172,6 +174,7 @@
    `(helm-swoop-target-word-face ((t (:background ,ml-black :foreground ,prompt-green :underline nil))))
    `(helm-swoop-target-line-face ((t (:background ,ml-grey-darker))))
 
+   ;; company
    `(company-tooltip-selection ((t (:inherit (helm-selection)))))
    `(company-tooltip-search ((t (:background ,foreground-black))))
    `(company-tooltip-common-selection ((t (:foreground ,prompt-green :background ,ml-grey-darker))))
@@ -201,6 +204,7 @@
    `(diredp-date-time ((t (:foreground ,comment))))
    `(diredp-number ((t (:foreground ,comment))))
    `(diredp-no-priv ((t (:foreground ,foreground))))
+
    ;; magit
    `(magit-log-author ((t (:foreground ,comment))))
    `(magit-log-date ((t (:foreground ,comment))))
@@ -231,6 +235,7 @@
    `(org-level-6 ((t (:foreground ,liso-purple))))
    `(org-level-7 ((t (:foreground ,liso-pink))))
    `(org-level-8 ((t (:foreground ,liso-dark-green))))
+
    ;; ediff
    `(diff-removed ((t (:foreground ,diff-dark-red))))
    `(diff-refine-removed ((t (:foreground ,diff-light-red))))
@@ -248,24 +253,29 @@
    `(ediff-fine-diff-A ((t (:foreground ,diff-light-orange))))
    `(ediff-fine-diff-B ((t (:foreground ,diff-light-orange))))
    `(ediff-fine-diff-C ((t (:background ,ml-black :foreground ,diff-ultra-green))))
+
    ;; web mode
    `(web-mode-html-tag-face ((t (:foreground ,liso-yellow))))
    `(web-mode-html-tag-bracket-face ((t (:inherit (web-mode-html-tag-face)))))
    `(web-mode-html-attr-name-face ((t (:foreground ,liso-dark-green))))
    `(web-mode-html-attr-value-face ((t (:foreground ,liso-dark-red))))
+
    ;; js2 mode
    `(js2-error ((t (:inherit (flycheck-error)))))
    `(js2-warning ((t (:inherit (flycheck-warning)))))
    `(js2-external-variable ((t (:foreground "HotPink1"))))
+
    ;; eshell
    `(eshell-prompt ((t (:foreground ,ml-yellow :background ,ml-black :weight ultra-bold))))
    `(eshell-ls-directory ((t (:foreground ,liso-yellow :weight bold))))
    `(eshell-ls-symlink ((t (:foreground ,link-blue))))
    `(eshell-ls-executable ((t (:foreground ,liso-green))))
+
    ;; whitespace
    `(whitespace-trailing ((t (:background ,error-red))))
    `(whitespace-tab ((t (:background ,highlight-yellow))))
    `(whitespace-line ((t (:background ,background :foreground ,foreground))))
+
    ;; markdown
    `(markdown-header-face ((t (:inherit (org-level-1)))))
    `(markdown-header-delimiter-face ((t (:foreground ,search-orange))))
@@ -276,8 +286,10 @@
    `(markdown-header-face-5 ((t (:inherit (org-level-5)))))
    `(markdown-url-face ((t (:foreground ,link-dark-blue))))
    `(markdown-link-face ((t (:foreground ,liso-blue))))
+
    ;; hs
    `(hs-face ((t (:foreground ,liso-dark-green :background ,ml-black))))
+
    ;; re-builder
    `(reb-match-0 ((t (:background ,search-orange :foreground ,foreground :box (:line-width 1 :color ,liso-pink)))))
    `(reb-match-1 ((t (:background ,search-brown :foreground ,foreground :box (:line-width 1 :color ,liso-pink)))))
@@ -301,23 +313,10 @@
 (setq-default ibuffer-marked-face 'diredp-flag-mark
               ibuffer-deletion-face 'diredp-deletion-file-name)
 
-;; Disable menu bar mode
-(menu-bar-mode -1)
-
-;; Disable toolbar
-(tool-bar-mode -1)
-
-;; Disable scroll
-(set-scroll-bar-mode nil)
-
-;; Fringes
-(set-fringe-mode '(1 . 1))
-
-;; Show size of file
-(size-indication-mode t)
-
-;; Show column number
-(column-number-mode t)
+;;;###autoload
+(when load-file-name
+  (add-to-list 'custom-theme-load-path
+               (file-name-as-directory (file-name-directory load-file-name))))
 
 ;; Export
 (provide-theme 'liso)
