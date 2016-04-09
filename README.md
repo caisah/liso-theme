@@ -15,7 +15,11 @@ Liso is an eclectic dark theme inspired by TangoTango.
 * markdown
 
 ### Images
-[Elisp](/img/elisp.png)
-[C](/img/c.png)
-[JS](/img/js.png)
-[Dired](/img/dired.png)
+**Elisp**
+![Elisp](/img/elisp.png)
+**C**
+![C](/img/c.png)
+**JS**
+![JS](/img/js.png)
+**Dired**
+![Dired](/img/dired.png)
