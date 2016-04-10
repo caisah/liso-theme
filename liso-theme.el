@@ -305,13 +305,12 @@
    `(erc-action-face ((t (:foreground ,liso-purple))))
    ))
 
-;; Shell
-(setq ansi-color-names-vector ["black" "red3" "green3" "yellow3" "#FFE203" "magenta3" "cyan3" "gray90"])
-(setq ansi-color-map (ansi-color-make-color-map))
-
-;; Ibuffer
-(setq-default ibuffer-marked-face 'diredp-flag-mark
-              ibuffer-deletion-face 'diredp-deletion-file-name)
+(custom-theme-set-variables
+ 'liso
+ '(ansi-color-names-vector ["black" "red3" "green3" "yellow3" "#FFE203" "magenta3" "cyan3" "gray90"])
+ '(ansi-color-map (ansi-color-make-color-map))
+ '(ibuffer-marked-face 'diredp-flag-mark)
+ '(ibuffer-deletion-face 'diredp-deletion-file-name))
 
 ;;;###autoload
 (when load-file-name
